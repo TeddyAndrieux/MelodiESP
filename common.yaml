@@ -1,0 +1,77 @@
+esphome:
+  name: melodi-esp
+  friendly_name: "MelodiESP"
+
+# Enable logging
+logger:
+  hardware_uart: UART0
+  level: INFO
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: ${button_music_1}
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Music 1"
+  - platform: gpio
+    pin:
+      number: ${button_music_2}
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Music 2"
+  - platform: gpio
+    pin:
+      number: ${button_music_3}
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Music 3"
+  - platform: gpio
+    pin:
+      number: ${button_music_4}
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Music 4"
+  - platform: gpio
+    pin:
+      number: ${button_music_5}
+      mode: INPUT_PULLUP
+      inverted: true
+    name: "Music 5"
+
+i2s_audio:
+  - id: i2s_bus
+    i2s_lrclk_pin: ${i2s_lrclk_pin}
+    i2s_bclk_pin: ${i2s_bclk_pin}
+
+speaker:
+  - platform: i2s_audio
+    id: i2s_speaker
+    i2s_audio_id: i2s_bus
+    dac_type: external
+    i2s_dout_pin: ${i2s_dout_pin}
+    sample_rate: 48000
+    buffer_duration: 200ms
+
+  # Mixer enabled for multi-pipeline support
+  - platform: mixer
+    id: mixer_speaker_id
+    output_speaker: i2s_speaker
+    source_speakers:
+      - id: announcement_spk_mixer_input
+      - id: media_spk_mixer_input
+
+
+media_player:
+  - platform: speaker
+    id: i2s_media_player
+    # Default to friendly name
+    name: None
+    codec_support_enabled: true
+    media_pipeline:
+      speaker: media_spk_mixer_input
+      format: FLAC
+      sample_rate: 48000
+      num_channels: 2
+    announcement_pipeline:
+      speaker: announcement_spk_mixer_input

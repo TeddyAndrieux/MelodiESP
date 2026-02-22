@@ -1,0 +1,49 @@
+substitutions:
+  board: "esp32-s3-devkitc1-n16r8"
+
+  i2s_lrclk_pin: "GPIO1"
+  i2s_bclk_pin: "GPIO2"
+  i2s_dout_pin: "GPIO42"
+
+  button_music_1: "GPIO4"
+  button_music_2: "GPIO5"
+  button_music_3: "GPIO6"
+  button_music_4: "GPIO7"
+  button_music_5: "GPIO15"
+
+<<: !include common.yaml
+
+esp32:
+  flash_size: 16MB
+  board: ${board}
+  variant: esp32s3
+  framework:
+    type: esp-idf
+    version: recommended
+
+psram:
+  mode: octal
+  speed: 80mhz
+
+api:
+  encryption:
+    key: !secret api_encryption_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "MelodiESP Fallback Hotspot"
+    password: !secret wifi_ap_password
+
+captive_portal:
+    
+web_server:
+  port: 80
+  version: 3

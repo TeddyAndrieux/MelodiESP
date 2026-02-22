@@ -1,27 +1,47 @@
 # MelodiESP 🎶
 
-MelodiESP is a smart, DIY connected music box powered by an ESP32. It combines
-the tactile feel of physical buttons with a modern web interface to play
-your favorite tracks stored on an SD card.
+MelodiESP is a smart, DIY connected music box powered by an **ESP32-S3**. It leverages the power of **ESPHome** to provide a seamless high-quality audio experience with both physical tactile controls and a modern web interface.
 
 ## ✨ Features
 
-- **Dual Control Mode**: Toggle music using physical buttons on the box or via a dedicated web dashboard.
-- **Web Interface**: A responsive web page hosted directly on the ESP32 to browse your music library and trigger songs remotely.
-- **Instant Play**: Map specific songs to physical buttons for a "Soundboard" experience.
-- **Live Sync**: The web interface updates in real-time to show what's currently playing.
-- **Standalone**: No external server or internet connection required (works via local Wi-Fi).
+- **High-Fidelity Audio**: Supports **FLAC** and WAV playback with a 48kHz sample rate.
+- **Advanced Audio Mixer**: Features a multi-pipeline I2S mixer allowing simultaneous media playback and system announcements.
+- **Tactile Interface**: 5 configurable physical buttons for instant music control or soundboard triggers.
+- **Integrated Web Dashboard**: A built-in, responsive web interface for remote control and status monitoring.
+- **Smart Home Ready**: Native integration with **Home Assistant** via the ESPHome API.
+- **Standalone Capability**: Operates independently on your local Wi-Fi without requiring external servers.
 
-## 🚀 How it Works
+## 🚀 Quick Start
 
-1. **Storage**: Music files (.mp3) are stored on a microSD card.
-2. **Access**: Connect to the MelodiESP Wi-Fi network or access its IP address on your local network.
-3. **Play**: Select a track from the web UI or press a physical button to start the music.
+1. **Configure Secrets**: Copy `secrets-sample.yaml` to `secrets.yaml` and fill in your Wi-Fi credentials and API keys.
+   ```bash
+   cp secrets-sample.yaml secrets.yaml
+   ```
+2. **Install ESPHome**: Ensure you have ESPHome installed in your environment.
+3. **Flash Firmware**: Connect your ESP32-S3 and run the following command to compile and upload:
+   ```bash
+   esphome run melodiesp.yaml
+   ```
+
+## 🧩 Architecture
+
+- **Audio Engine**: Powered by the ESP-IDF framework within ESPHome to handle high-performance I2S audio pipelines and mixing.
+- **Dynamic Control**: Supports both physical GPIO button interrupts and remote API triggers.
+- **Audio Routing**: Direct digital stream to external I2S DACs for maximum sound quality.
 
 ## 🛠️ Software Stack
 
-TODO
+- **ESPHome**: Core firmware framework.
+- **ESP-IDF**: Underlying development framework for advanced audio features.
+- **I2S Audio Component**: For digital audio output and mixing.
+- **Web Server v3**: Provides the local management interface.
 
 ## 🔌 Hardware Requirements
 
-TODO
+- **Microcontroller**: ESP32-S3 (N16R8 recommended for PSRAM support).
+- **Audio**: External I2S DAC/Amplifier (e.g., MAX98357A, PCM5102).
+- **Controls**: 5x Momentary Push Buttons.
+- **Power**: Stable 5V power supply.
+
+---
+*Powered by ESPHome.*
