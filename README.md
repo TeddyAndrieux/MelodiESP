@@ -36,6 +36,13 @@ MelodiESP is a smart, DIY connected music box powered by an **ESP32-S3**. It lev
 - **I2S Audio Component**: For digital audio output and mixing.
 - **Web Server v3**: Provides the local management interface.
 
+## 🎨 Enclosure & 3D Design
+
+The project includes a custom robot-themed enclosure provided as an **OpenSCAD** source:
+- **Parametric Source**: `robot.scad` allows you to customize the box size, thickness, and component mounting by adjusting variables in the file.
+- **Parts Included**: The script generates both the **Front Panel** (with speaker grid and button holes) and the **Back Panel** (with standoffs).
+- **How to Export**: Open `robot.scad` in [OpenSCAD](https://openscad.org/), adjust the `part_to_show` variable to select a part, then render (F6) and export as STL or 3MF for printing.
+
 ## 🔌 Hardware Requirements
 
 - **Microcontroller**: ESP32-S3 (N16R8 recommended for PSRAM support).
