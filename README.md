@@ -43,6 +43,12 @@ The project includes a custom robot-themed enclosure provided as an **OpenSCAD**
 - **Parts Included**: The script generates both the **Front Panel** (with speaker grid and button holes) and the **Back Panel** (with standoffs).
 - **How to Export**: Open `robot.scad` in [OpenSCAD](https://openscad.org/), adjust the `part_to_show` variable to select a part, then render (F6) and export as STL or 3MF for printing.
 
+## 🏠 Home Assistant Integration
+
+MelodiESP is designed for deep integration with Home Assistant:
+- **Music Assistant**: It is recommended use [Music Assistant](https://music-assistant.io/) to manage the media player. The ESP32-S3 will appear as an ESPHome media player which can be added as a player in Music Assistant for high-quality streaming (FLAC support).
+- **Automations**: You can trigger complex automations based on the physical button presses (e.g., specific playlists or TTS announcements).
+
 ## 🔌 Hardware Requirements
 
 - **Microcontroller**: ESP32-S3 (N16R8 recommended for PSRAM support).
