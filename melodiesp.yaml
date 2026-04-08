@@ -5,11 +5,11 @@ substitutions:
   i2s_bclk_pin: "GPIO2"
   i2s_dout_pin: "GPIO42"
 
-  button_music_1: "GPIO4"
-  button_music_2: "GPIO5"
+  button_music_1: "GPIO15"
+  button_music_2: "GPIO7"
   button_music_3: "GPIO6"
-  button_music_4: "GPIO7"
-  button_music_5: "GPIO15"
+  button_music_4: "GPIO5"
+  button_music_5: "GPIO4"
 
 <<: !include common.yaml
 

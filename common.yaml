@@ -2,6 +2,11 @@ esphome:
   name: melodi-esp
   friendly_name: "MelodiESP"
 
+  on_boot:
+    priority: 600
+    then:
+      - rtttl.play: "startup:d=8,o=5,b=200:e6,g6,e7"
+
 # Enable logging
 logger:
   hardware_uart: UART0
@@ -75,3 +80,8 @@ media_player:
       num_channels: 2
     announcement_pipeline:
       speaker: announcement_spk_mixer_input
+
+rtttl:
+  speaker: i2s_speaker
+  id: buzzer
+  gain: 0.3
