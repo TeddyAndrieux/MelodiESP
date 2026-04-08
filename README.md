@@ -2,6 +2,8 @@
 
 MelodiESP is a smart, DIY connected music box powered by an **ESP32-S3**. It leverages the power of **ESPHome** to provide a seamless high-quality audio experience with both physical tactile controls and a modern web interface.
 
+> 📋 **Want to build one?** See the [Example Build](EXAMPLE.md) for a complete component list, 3D enclosure details, and Home Assistant configuration.
+
 ## ✨ Features
 
 - **High-Fidelity Audio**: Supports **FLAC** and WAV playback with a 48kHz sample rate.
@@ -34,19 +36,11 @@ MelodiESP is a smart, DIY connected music box powered by an **ESP32-S3**. It lev
 - **ESPHome**: Core firmware framework.
 - **ESP-IDF**: Underlying development framework for advanced audio features.
 - **I2S Audio Component**: For digital audio output and mixing.
-- **Web Server v3**: Provides the local management interface.
-
-## 🎨 Enclosure & 3D Design
-
-The project includes a custom robot-themed enclosure provided as an **OpenSCAD** source:
-- **Parametric Source**: `robot.scad` allows you to customize the box size, thickness, and component mounting by adjusting variables in the file.
-- **Parts Included**: The script generates both the **Front Panel** (with speaker grid and button holes) and the **Back Panel** (with standoffs).
-- **How to Export**: Open `robot.scad` in [OpenSCAD](https://openscad.org/), adjust the `part_to_show` variable to select a part, then render (F6) and export as STL or 3MF for printing.
 
 ## 🏠 Home Assistant Integration
 
 MelodiESP is designed for deep integration with Home Assistant:
-- **Music Assistant**: It is recommended use [Music Assistant](https://music-assistant.io/) to manage the media player. The ESP32-S3 will appear as an ESPHome media player which can be added as a player in Music Assistant for high-quality streaming (FLAC support).
+- **Music Assistant**: It is recommended to use [Music Assistant](https://music-assistant.io/) to manage the media player. The ESP32-S3 will appear as an ESPHome media player which can be added as a player in Music Assistant for high-quality streaming (FLAC support).
 - **Automations**: You can trigger complex automations based on the physical button presses (e.g., specific playlists or TTS announcements).
 
 ## 🔌 Hardware Requirements
@@ -55,6 +49,3 @@ MelodiESP is designed for deep integration with Home Assistant:
 - **Audio**: External I2S DAC/Amplifier (e.g., MAX98357A, PCM5102).
 - **Controls**: 5x Momentary Push Buttons.
 - **Power**: Stable 5V power supply.
-
----
-*Powered by ESPHome.*
