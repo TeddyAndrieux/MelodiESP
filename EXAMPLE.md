@@ -1,5 +1,10 @@
 # Example Build
 
+<p float="left">
+  <img src="images/full-robot.jpg" width="400">
+  <img src="images/inside-robot.jpg" width="400">
+</p>
+
 This page describes a complete example setup for MelodiESP, including the hardware components and the Home Assistant configuration. This particular example is built around **Spotify** integration via Music Assistant, but the setup can be adapted to suit your own needs (different music sources, automations, etc.).
 
 ## 📋 Component Set
