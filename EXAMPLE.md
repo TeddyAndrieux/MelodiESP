@@ -143,8 +143,9 @@ What it does:
 - **Short press**: Plays the music associated with the button.
 - **Short press (same track playing)**: Toggles pause/resume.
 - **Long press on button 3** (> 0.5s): Toggles radio mode.
+- **Long press on button 2** (> 0.5s): Previous track.
+- **Long press on button 4** (> 0.5s): Next track.
 - **Long press on button 1 or 5** (> 0.5s): Decreases or increases the volume.
-- **Long press on buttons 2 and 4**: Currently unused / reserved.
 - Plays a sound notification when a new track starts.
 
 ```yaml
@@ -201,6 +202,24 @@ actions:
               - action: input_boolean.toggle
                 target:
                   entity_id: input_boolean.mesp_radio_mode
+
+          # Handle long press for button 2 (previous track)
+          - conditions:
+              - condition: template
+                value_template: "{{ button_id == 2 }}"
+            sequence:
+              - action: media_player.media_previous_track
+                target:
+                  entity_id: "{{ player_entity }}"
+
+          # Handle long press for button 4 (next track)
+          - conditions:
+              - condition: template
+                value_template: "{{ button_id == 4 }}"
+            sequence:
+              - action: media_player.media_next_track
+                target:
+                  entity_id: "{{ player_entity }}"
 
           # Handle long press for button 1 and 5 (volume)
           # Button 1 is volume down, button 5 is volume up
