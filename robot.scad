@@ -55,10 +55,10 @@ module Front() {
 
     // --- INTERRUPTOR HOLES ---
     translate([-width / 2 - 1, -length / 2 + 30, 15])
-      cube([13.5, 9, thickness + 10], center=true);
+      cube([thickness + 10, 9, 13.5], center=true);
 
     // --- USB PORT ---
-    translate([-width / 2 - 1, 5 + 17, height - 8])
+    translate([-width / 2 - 1, 5 + 16, height - 8])
       cube([thickness + 10, 14, 7], center=true);
   }
 
